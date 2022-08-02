@@ -1,9 +1,9 @@
 // ==UserScript==
 // @name         shipit
 // @namespace    http://asottile.com/
-// @version      0.1
+// @version      0.2
 // @author       asottile
-// @match        https://github.com/*/*/pull/*
+// @match        https://github.com/*
 // @grant        GM.xmlHttpRequest
 // ==/UserScript==
 
@@ -24,7 +24,7 @@
         }
     });
 
-    document.body.addEventListener('click', function (e) {
+    document.documentElement.addEventListener('click', function (e) {
         var msg;
         if (urls.length && e.target.name === 'pull_request_review[event]' && e.target.value === 'approve') {
             msg = document.querySelector('#pull_request_review_body')
